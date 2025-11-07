@@ -146,7 +146,7 @@
   transition: 0.5s;
 }
 
-.header-carousel .owl-nav {
+.container .owl-nav {
   position: absolute;
   top: 50%;
   right: 8%;
@@ -155,8 +155,35 @@
   flex-direction: column;
 }
 
-.header-carousel .owl-nav .owl-prev,
-.header-carousel .owl-nav .owl-next {
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+.carousel-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2; /* Make sure it stays above the images */
+  background: rgba(24, 29, 56, 0.3);
+  display: flex;
+  align-items: flex-start;
+  padding-top: 10.5rem;
+}
+
+.carousel-overlay .container {
+  position: relative;
+  z-index: 3;
+}
+
+.carousel-img {
+  width: 200%;
+}
+
+.container .owl-nav .owl-prev,
+.container .owl-nav .owl-next {
   margin: 7px 0;
   width: 30px;
   height: 30px;
@@ -170,8 +197,8 @@
   transition: 0.5s;
 }
 
-.header-carousel .owl-nav .owl-prev:hover,
-.header-carousel .owl-nav .owl-next:hover {
+.container .owl-nav .owl-prev:hover,
+.container .owl-nav .owl-next:hover {
   background: var(--primary);
   border-color: var(--primary);
 }
@@ -338,12 +365,12 @@
 
 /*** Header carousel ***/
 @media (max-width: 768px) {
-  .header-carousel .owl-carousel-item {
+  .container .owl-carousel-item {
     position: relative;
     min-height: 500px;
   }
 
-  .header-carousel .owl-carousel-item img {
+  .container .owl-carousel-item img {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -496,64 +523,122 @@
   }
 }
 
-/* Carousel Text Responsive Styling */
-.header-carousel h1 {
-  font-size: clamp(1.6rem, 5vw, 2rem); /* scales between 1.6rem and 4rem */
+.container h1 {
+  font-size: clamp(1.4rem, 5vw, 2.4rem); /* smaller, responsive size */
+  line-height: 1.2; /* slightly looser spacing */
+  font-weight: 700; /* bold text */
+  max-width: 600px; /* prevent text overflow */
+  word-break: break-word; /* break long words if needed */
+  display: flex;
+  flex-direction: column; /* stack spans vertically */
+  gap: 0.3rem; /* spacing between lines */
+  text-align: left; /* align left */
+  color: #000; /* make sure text is visible */
+}
+
+.non-container h1 {
+  font-size: clamp(1.4rem, 6vw, 3rem);
   line-height: 1.2;
+  font-weight: 700;
+  max-width: 100%; /* allow full width for centering */
+  word-break: break-word;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  text-align: center;
+  color: #000;
 }
 
-.header-carousel h5 {
-  font-size: clamp(0.9rem, 2.5vw, 1.5rem);
+.container h5 {
+  font-size: clamp(0.9rem, 2vw, 1.3rem);
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
-
-.header-carousel p {
+.container p {
   font-size: clamp(0.7rem, 2vw, 1rem);
 }
 
-.header-carousel .btn {
+.container .btn {
   padding: clamp(0.4rem, 1vw, 0.6rem) clamp(1rem, 2vw, 1.5rem);
   font-size: clamp(0.8rem, 2vw, 1rem);
 }
 
+/* Non-container wrapper */
+.non-container {
+  display: flex;
+  flex-direction: column; /* stack children vertically */
+  justify-content: center; /* vertical centering */
+  align-items: center; /* horizontal centering */
+  text-align: center; /* center text */
+  width: 100%;
+}
+
+/* H1 styling */
+.non-container h1 {
+  font-size: clamp(1.6rem, 5vw, 3rem); /* scales with viewport */
+  line-height: 1.2;
+  font-weight: 700;
+  max-width: 90%; /* prevent long lines */
+  word-break: break-word;
+  color: #000;
+}
+
+/* H5 styling */
+.non-container h5 {
+  font-size: clamp(1rem, 3vw, 1.5rem); /* responsive smaller heading */
+  font-weight: 600;
+  color: #000; /* primary color (adjust as needed) */
+  letter-spacing: 0.5px;
+}
+
+/* Responsive tweaks for smaller devices */
+@media (max-width: 768px) {
+  .non-container h1 {
+    font-size: clamp(1.4rem, 6vw, 2.2rem);
+  }
+  .non-container h5 {
+    font-size: clamp(0.9rem, 4vw, 1.2rem);
+  }
+}
+
+@media (max-width: 576px) {
+  .non-container h1 {
+    font-size: clamp(1.2rem, 7vw, 1.8rem);
+  }
+  .non-container h5 {
+    font-size: clamp(0.8rem, 5vw, 1rem);
+  }
+}
+
 /* Optional fine-tuning with media queries */
 @media (max-width: 768px) {
-  .header-carousel h1 {
+  .container h1 {
     text-align: left;
   }
-  .header-carousel p {
+  .container p {
     text-align: left;
   }
 }
 
 @media (max-width: 576px) {
-  .header-carousel h1 {
+  .container h1 {
     font-size: 1.2rem; /* minimum for small devices */
   }
-  .header-carousel h5 {
+  .container h5 {
     font-size: 0.7rem;
   }
-  .header-carousel p {
+  .container p {
     font-size: 0.65rem;
   }
-  .header-carousel .btn {
+  .container .btn {
     font-size: 0.7rem;
     padding: 0.4rem 1rem;
   }
 }
 
-/* Control line breaks and positioning for hero text */
-.header-carousel h1 {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem; /* space between lines */
-  max-width: 600px; /* prevent covering face */
-  line-height: 1.1;
-  word-break: break-word;
-}
-
 /* For tablets */
 @media (max-width: 992px) {
-  .header-carousel h1 {
+  .container h1 {
     font-size: 2.4rem;
     max-width: 480px;
   }
@@ -565,7 +650,7 @@
 
 /* For smaller mobile devices */
 @media (max-width: 768px) {
-  .header-carousel h1 {
+  .container h1 {
     font-size: 2rem;
     max-width: 380px;
   }
@@ -577,7 +662,7 @@
 
 /* For very small screens */
 @media (max-width: 576px) {
-  .header-carousel h1 {
+  .container h1 {
     font-size: 1.6rem;
     max-width: 300px;
   }
@@ -596,29 +681,15 @@
   color: #fff;
 }
 
-/* Hero Heading Responsiveness */
-.header-carousel h1 {
-  font-size: clamp(1.8rem, 4vw + 1rem, 2rem);
-  line-height: 1.1;
-  font-weight: 700;
-  max-width: 600px;
-  word-wrap: break-word;
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  text-align: left;
-}
-
-.header-carousel h5 {
+.container h5 {
   font-size: clamp(0.9rem, 2vw, 1.3rem);
   font-weight: 600;
   letter-spacing: 0.5px;
-  text-transform: uppercase;
 }
 
 /* Specific tweak for iPhone 12 Pro and similar devices */
 @media (max-width: 400px) {
-  .header-carousel h1 {
+  .container h1 {
     font-size: 1.4rem; /* smaller heading */
     max-width: 270px; /* prevent overlapping the image */
     line-height: 1.1;
@@ -630,7 +701,7 @@
     line-height: 1.4;
   }
 
-  .header-carousel .btn {
+  .container .btn {
     font-size: 0.75rem; /* slightly smaller button */
     padding: 0.4rem 0.9rem;
   }
@@ -638,7 +709,7 @@
 
 /* Small phones (iPhone 12 Pro etc.) */
 @media (max-width: 400px) {
-  .header-carousel h1 {
+  .container h1 {
     font-size: 1.2rem;
     max-width: 400px;
   }
@@ -647,7 +718,7 @@
     max-width: 400px;
     line-height: 1.4;
   }
-  .header-carousel .btn {
+  .container .btn {
     font-size: 0.75rem;
     padding: 0.4rem 0.9rem;
   }
