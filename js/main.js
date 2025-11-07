@@ -66,6 +66,7 @@
   // Header carousel
   $('.header-carousel').owlCarousel({
     autoplay: true,
+    autoplayTimeout: 3000, // 3 seconds per slide
     smartSpeed: 1500,
     items: 1,
     dots: false,
@@ -76,7 +77,9 @@
   // Testimonials carousel
   $('.testimonial-carousel').owlCarousel({
     autoplay: true,
-    smartSpeed: 1000,
+    smartSpeed: 1500,
+    autoplayTimeout: 4000, // 3 seconds per slide
+
     center: true,
     margin: 24,
     dots: true,
@@ -103,6 +106,8 @@
     loop: true,
     autoplay: true,
     smartSpeed: 1000,
+    autoplayTimeout: 3000, // 3 seconds per slide
+
     responsive: {
       0: {
         items: 3,
