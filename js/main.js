@@ -72,6 +72,7 @@
     dots: false,
     loop: true,
     nav: false,
+    autoplayHoverPause: false, // prevents pause on hover
   });
 
   // Testimonials carousel
@@ -85,6 +86,8 @@
     dots: true,
     loop: true,
     nav: false,
+    autoplayHoverPause: false, // prevents pause on hover
+
     responsive: {
       0: {
         items: 1,
@@ -107,6 +110,7 @@
     autoplay: true,
     smartSpeed: 1000,
     autoplayTimeout: 3000, // 3 seconds per slide
+    autoplayHoverPause: false, // prevents pause on hover
 
     responsive: {
       0: {
@@ -122,6 +126,19 @@
         items: 6,
       },
     },
+  });
+
+  // Ensure OwlCarousels resume after tab switch
+  document.addEventListener('visibilitychange', function () {
+    if (document.visibilityState === 'visible') {
+      $('.header-carousel').trigger('play.owl.autoplay', [1000]);
+      $('.testimonial-carousel').trigger('play.owl.autoplay', [1000]);
+      $('.vendor-carousel').trigger('play.owl.autoplay', [1000]);
+    } else {
+      $('.header-carousel').trigger('stop.owl.autoplay');
+      $('.testimonial-carousel').trigger('stop.owl.autoplay');
+      $('.vendor-carousel').trigger('stop.owl.autoplay');
+    }
   });
 
   // Initialize EmailJS
