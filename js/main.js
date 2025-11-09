@@ -114,10 +114,10 @@
 
     responsive: {
       0: {
-        items: 4,
+        items: 3,
       },
       576: {
-        items: 4,
+        items: 3,
       },
       768: {
         items: 6,
