@@ -114,7 +114,7 @@
 
     responsive: {
       0: {
-        items: 3,
+        items: 4,
       },
       576: {
         items: 4,
@@ -140,7 +140,6 @@
       $('.vendor-carousel').trigger('stop.owl.autoplay');
     }
   });
-
   // Initialize EmailJS
   (function () {
     emailjs.init({
