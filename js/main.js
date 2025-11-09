@@ -163,7 +163,7 @@
       submitButton.innerHTML =
         '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Sending...';
 
-      emailjs.sendForm('service_h61jwby', 'template_cvt4f9k', this).then(
+      emailjs.sendForm('service_rewd2k4', 'template_z41zog8', this).then(
         () => {
           // Success animation
           submitButton.innerHTML = 'Message Sent!';
