@@ -143,7 +143,7 @@
   // Initialize EmailJS
   (function () {
     emailjs.init({
-      publicKey: 'cMuC23Ggyv6DYgGV9',
+      publicKey: 'ScZjjKrHG85lhg7Ps',
     });
   })();
 
