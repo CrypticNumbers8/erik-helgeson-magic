@@ -555,7 +555,7 @@
   letter-spacing: 0.5px;
 }
 .container p {
-  font-size: clamp(0.5rem, 2vw, 1rem);
+  font-size: clamp(0.5rem, 2vw, 1.2rem);
 }
 
 .container .btn {
@@ -576,6 +576,18 @@
 .top-button {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+}
+
+/* Fix Book Today button text wrapping */
+.navbar .btn {
+  white-space: normal; /* allow wrapping */
+  text-align: center; /* center the text */
+  line-height: 1; /* tighter line spacing */
+  padding: 1.6rem 1.6rem; /* more balanced padding */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; /* stack words vertically */
 }
 
 /* H1 styling */
@@ -672,16 +684,22 @@
 /* For very small screens */
 @media (max-width: 576px) {
   .container h1 {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     max-width: 300px;
   }
   .hero-text {
+    display: none;
     font-size: 0.8rem;
-    max-width: 210px;
+    max-width: 300px;
   }
   .top-button {
-    padding-top: 0.75rem;
+    padding-top: 1.75rem;
     padding-bottom: 0.75rem;
+  }
+  .container .btn {
+    margin-top: 1.5rem;
+    font-size: 0.75rem;
+    padding: 0.4rem 0.9rem;
   }
 }
 
@@ -700,40 +718,23 @@
   letter-spacing: 0.5px;
 }
 
-/* Specific tweak for iPhone 12 Pro and similar devices */
-@media (max-width: 400px) {
-  .container h1 {
-    font-size: 1.4rem; /* smaller heading */
-    max-width: 270px; /* prevent overlapping the image */
-    line-height: 1.1;
-  }
-
-  .hero-text {
-    font-size: 0.8rem; /* make supporting text smaller */
-    max-width: 210px;
-    line-height: 1.2;
-  }
-
-  .container .btn {
-    font-size: 0.75rem; /* slightly smaller button */
-    padding: 0.4rem 0.9rem;
-  }
-}
-
 /* Small phones (iPhone 12 Pro etc.) */
 @media (max-width: 400px) {
   .container h1 {
-    font-size: 1.4rem;
-    max-width: 400px;
+    font-size: 1.2rem;
+    max-width: 270px;
+    line-height: 1.1;
   }
   .hero-text {
-    font-size: 0.2rem; /* readable on small screens */
-    max-width: 210px;
-    line-height: 1.2;
+    display: none;
   }
   .container .btn {
+    margin-top: 2rem;
     font-size: 0.75rem;
     padding: 0.4rem 0.9rem;
+  }
+  .top-button {
+    margin-top: 2rem;
   }
 }
 
